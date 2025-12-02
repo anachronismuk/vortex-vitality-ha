@@ -15,3 +15,4 @@ Once you have configured the `docker_compose.yml` file for your environment, run
 
 API docs for the probe: https://vortexvitality.uk/smart-home-automation/rest-api/
 
+Disclaimer: I do not work for, or represent Vortex Vitality in any way, I'm just a fan of their product. This is provided as is, in the hope that it may be useful to others, it's my first MQTT/HA program, so it is an ugly child - feel free to customise as required for your environment
