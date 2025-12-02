@@ -2,7 +2,7 @@
 A docker container to bridge vortex vitality plant health probes and mqtt for home assistant
 
 
-This container uses [mqtt](https://github.com/mqtt) to send information from Vortex [Vitality plant sensors](https://vortexvitality.uk).
+This container uses [mqtt](https://github.com/mqtt) to send information from [Vortex Vitality plant sensors](https://vortexvitality.uk).
 
 
 Tested against a docker hosted [mosquitto broker](https://github.com/eclipse-mosquitto/mosquitto). To use, configure the `docker-compose.yml` to match your environment. You will need to generate an API key (from the vplants app Profile->Vprobe API).
