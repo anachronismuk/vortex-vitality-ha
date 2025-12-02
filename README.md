@@ -1,6 +1,8 @@
 # vortex-vitality-ha
 A docker container to bridge vortex vitality plant health probes and mqtt for home assistant
 
+This allows you to add your plants into Home Assistant:
+<img width="1083" height="759" alt="image" src="https://github.com/user-attachments/assets/0cc9548e-b302-4237-90ea-61dae5885863" />
 
 This container uses [mqtt](https://github.com/mqtt) to send information from [Vortex Vitality plant sensors](https://vortexvitality.uk).
 
@@ -14,5 +16,6 @@ The `VV_PROBE_FREQUENCY` variable should be set to how frequently you probe the 
 Once you have configured the `docker_compose.yml` file for your environment, running `docker compose up -d` should be all that's needed to start the container.
 
 API docs for the probe: https://vortexvitality.uk/smart-home-automation/rest-api/
+
 
 Disclaimer: I do not work for, or represent Vortex Vitality in any way, I'm just a fan of their product. This is provided as is, in the hope that it may be useful to others, it's my first MQTT/HA program, so it is an ugly child - feel free to customise as required for your environment
