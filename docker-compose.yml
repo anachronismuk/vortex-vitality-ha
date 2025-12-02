@@ -11,6 +11,6 @@ services:
       #VV_BROKER_PASSWORD: pass     # the optional mqtt password
       VV_API_KEY: ps....ffJ         # Your Vortex Vitality API key, generated from the app
       VV_MY_PROBES: 100,200,123,321 # Comma delimited list of probe serials
-      VV_PROBE_FREQUENCY: 600       # How frequently we poll (seconds). 
+      VV_PROBE_FREQUENCY: 3600      # How frequently we poll (seconds). 
                                     # Values less than 600/10 minutes, will be set to 600
                                     # so as to not spam.
