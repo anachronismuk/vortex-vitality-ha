@@ -1,0 +1,79 @@
+# Demo using the mushroom template card (installed from HACs).
+# Search and replace `vplant_sn00000336` with your sensor to use in your dashboard.
+
+type: grid
+cards:
+  - type: heading
+    heading: Dypsis Lutescens Plant
+    heading_style: title
+    icon: mdi:flower
+  - type: custom:mushroom-template-card
+    primary: >-
+      Moisture: {{ states.sensor.vplant_sn00000336_moisture_indicator.state |
+      default("Unknown")}}
+    secondary: "{{ states.sensor.vplant_sn00000336_moisture.state | default(\"Unknown\")}} %"
+    icon: mdi:water
+    features_position: bottom
+    entity: sensor.vplant_sn00000336_moisture_indicator
+    color: >-
+      {% if is_state('sensor.vplant_sn00000336_moisture_indicator','Ok')
+      %}green{%else%}red{%endif%}
+  - type: custom:mushroom-template-card
+    primary: >-
+      Temperature: {{
+      states.sensor.vplant_sn00000336_temperature_indicator.state |
+      default("Unknown")}}
+    secondary: >-
+      {{ states.sensor.vplant_sn00000336_temperature.state |
+      default("Unknown")}} DegC
+    icon: mdi:thermometer
+    features_position: bottom
+    entity: sensor.vplant_sn00000336_temperature_indicator
+    color: >-
+      {% if is_state('sensor.vplant_sn00000336_temperature_indicator','Ok')
+      %}green{%else%}red{%endif%}
+  - type: custom:mushroom-template-card
+    primary: >-
+      Light: {{ states.sensor.vplant_sn00000336_light_indicator.state |
+      default("Unknown")}}
+    secondary: >-
+      {{ states.sensor.vplant_sn00000336_illuminance.state |
+      default("Unknown")}} lx
+    features_position: bottom
+    entity: sensor.vplant_sn00000336_light_indicator
+    color: >-
+      {% if is_state('sensor.vplant_sn00000336_light_indicator','Ok')
+      %}green{%else%}red{%endif%}
+    icon: mdi:sun-clock
+  - type: custom:mushroom-template-card
+    primary: >-
+      humidity: {{ states.sensor.vplant_sn00000336_humidity_indicator.state |
+      default("Unknown")}}
+    secondary: "{{ states.sensor.vplant_sn00000336_humidity.state | default(\"Unknown\")}} %"
+    features_position: bottom
+    entity: sensor.vplant_sn00000336_humidity_indicator
+    color: >-
+      {% if is_state('sensor.vplant_sn00000336_humidity_indicator','Ok')
+      %}green{%else%}red{%endif%}
+    icon: mdi:pot-steam
+  - type: custom:mushroom-template-card
+    primary: "Message: "
+    secondary: "{{ states.sensor.vplant_sn00000336_message.state | default(\"Unknown\")}}"
+    features_position: bottom
+    entity: sensor.vplant_sn00000336_message
+    color: blue
+    icon: mdi:mail
+    grid_options:
+      columns: 12
+      rows: 1
+    multiline_secondary: true
+  - type: picture
+    image:
+      media_content_id: >-
+        https://www.ikea.com/gb/en/images/products/dypsis-lutescens-potted-plant-areca-palm__0653973_pe708202_s5.jpg
+      media_content_type: ""
+      metadata:
+        navigateIds:
+          - {}
+          - media_content_type: ""
+            media_content_id: __MANUAL_ENTRY__
