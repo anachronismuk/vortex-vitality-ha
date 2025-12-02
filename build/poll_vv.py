@@ -267,7 +267,6 @@ my_probes = os.getenv('VV_MY_PROBES',"")
 probe_frequency=int(os.getenv('VV_PROBE_FREQUENCY',600))
 if probe_frequency<600:
 	probe_frequency=600
-
 client=connect_mqtt(client_id,broker,port,username,password)
 client.on_disconnect = on_disconnect
 while True:
@@ -284,13 +283,16 @@ while True:
 			break
 		data = response.json()
 		sn=f"vplant_sn{str(data['sn']).zfill(8)}"
+		logger(f"Updating: {vprobe_sn}")
 		create_vortex(client,data)
-		
+		time.sleep(5)
 		data["batt"]=battery_calc(data["batt"])
 		message=generate_message(data["message"])
 		for trim in ['INDICATORS','SENSORS','message']:
 			del data[trim]
+		logger(f"Publising state to {vprobe_sn}")
 		publish(client,f"{sn}/state", json.dumps(data).encode("utf-8"))
+		logger(f"Publising state/message to {vprobe_sn}")
 		publish(client,f"{sn}/state/message", message.encode("utf-8"))
 	logger(f"Sleeping for {probe_frequency} seconds")
 	time.sleep(probe_frequency)
