@@ -202,25 +202,25 @@ def create_vortex(client,data):
 			"lightInd": {
 				"p": "sensor",
 				"name":"Light Indicator",
-				"value_template": "{% if value_json.lightInd == 0 %}Ok{% else %}Not OK{% endif %}",
+				"value_template": "{% if value_json.lightInd == 0 %}OK{% else %}Not OK{% endif %}",
 				"unique_id": sn+"_light_indicator"
 			},
 			"tempInd": {
 				"p": "sensor",
 				"name":"Temperature Indicator",
-				"value_template": "{% if value_json.tempInd == 0 %}Ok{% else %}Not OK{% endif %}",
+				"value_template": "{% if value_json.tempInd == 0 %}OK{% else %}Not OK{% endif %}",
 				"unique_id": sn+"temperature_indicator"
 			},
 			"humInd": {
 				"p": "sensor",
 				"name":"Humidity Indicator",
-				"value_template": "{% if value_json.humInd == 0 %}Ok{% else %}Not OK{% endif %}",
+				"value_template": "{% if value_json.humInd == 0 %}OK{% else %}Not OK{% endif %}",
 				"unique_id": sn+"_humidity_indicator"
 			},
 			"moistureInd": {
 				"p": "sensor",
 				"name":"Moisture Indicator",
-				"value_template": "{% if value_json.moistureInd == 0 %}Ok{% else %}Not OK{% endif %}",
+				"value_template": "{% if value_json.moistureInd == 0 %}OK{% else %}Not OK{% endif %}",
 				"unique_id": sn+"_moisture_indicator"
 			},
 			"message": {
