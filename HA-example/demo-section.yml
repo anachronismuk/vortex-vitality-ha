@@ -16,7 +16,7 @@ cards:
     features_position: bottom
     entity: sensor.vplant_sn00000336_moisture_indicator
     color: >-
-      {% if is_state('sensor.vplant_sn00000336_moisture_indicator','Ok')
+      {% if is_state('sensor.vplant_sn00000336_moisture_indicator','OK')
       %}green{%else%}red{%endif%}
   - type: custom:mushroom-template-card
     primary: >-
@@ -30,7 +30,7 @@ cards:
     features_position: bottom
     entity: sensor.vplant_sn00000336_temperature_indicator
     color: >-
-      {% if is_state('sensor.vplant_sn00000336_temperature_indicator','Ok')
+      {% if is_state('sensor.vplant_sn00000336_temperature_indicator','OK')
       %}green{%else%}red{%endif%}
   - type: custom:mushroom-template-card
     primary: >-
@@ -42,7 +42,7 @@ cards:
     features_position: bottom
     entity: sensor.vplant_sn00000336_light_indicator
     color: >-
-      {% if is_state('sensor.vplant_sn00000336_light_indicator','Ok')
+      {% if is_state('sensor.vplant_sn00000336_light_indicator','OK')
       %}green{%else%}red{%endif%}
     icon: mdi:sun-clock
   - type: custom:mushroom-template-card
@@ -53,7 +53,7 @@ cards:
     features_position: bottom
     entity: sensor.vplant_sn00000336_humidity_indicator
     color: >-
-      {% if is_state('sensor.vplant_sn00000336_humidity_indicator','Ok')
+      {% if is_state('sensor.vplant_sn00000336_humidity_indicator','OK')
       %}green{%else%}red{%endif%}
     icon: mdi:pot-steam
   - type: custom:mushroom-template-card
