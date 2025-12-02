@@ -4,6 +4,7 @@ services:
     build: .
     command: python3 poll_vv.py
     network_mode: bridge
+    restart: unless-stopped
     environment:
       VV_BROKER: broker             # the mqtt broker hostname/up
       VV_BROKER_PORT: 1883          # the mqtt broker port
