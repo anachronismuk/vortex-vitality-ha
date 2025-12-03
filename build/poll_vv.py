@@ -83,14 +83,16 @@ def on_disconnect(client, userdata, rc):
 
 def publish(client,topic,msg):
   status=1
-  retries=1
-  while status==1 and retries<4:
+  retries=0
+  while status!=0 and retries<4:
     result = client.publish(topic, msg)
     # result: [0, 1]
     status = result[0]
     if status != 0:
         logger(f"Attempt {retries}: Failed to send message to topic {topic}")
         retries+=1
+    else:
+        logger(f"Published [{topic}]: {msg}")
 
 def logger(message):
   print(f"{datetime.datetime.now().isoformat()}: {message}")
