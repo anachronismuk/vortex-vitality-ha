@@ -285,9 +285,11 @@ while True:
 			break
 		data = response.json()
 		sn=f"vplant_sn{str(data['sn']).zfill(8)}"
+		publish(client,"ping", str("{}").encode("utf-8"))
+		time.sleep(2)
 		logger(f"Updating: {vprobe_sn}")
 		create_vortex(client,data)
-		time.sleep(5)
+		time.sleep(2)
 		data["batt"]=battery_calc(data["batt"])
 		message=generate_message(data["message"])
 		for trim in ['INDICATORS','SENSORS','message']:
