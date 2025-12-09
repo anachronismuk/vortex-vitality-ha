@@ -285,8 +285,6 @@ while True:
 			break
 		data = response.json()
 		sn=f"vplant_sn{str(data['sn']).zfill(8)}"
-		publish(client,"ping", str("{}").encode("utf-8"))
-		time.sleep(2)
 		logger(f"Updating: {vprobe_sn}")
 		create_vortex(client,data)
 		time.sleep(2)
@@ -300,3 +298,6 @@ while True:
 		publish(client,f"{sn}/state/message", message.encode("utf-8"))
 	logger(f"Sleeping for {probe_frequency} seconds")
 	time.sleep(probe_frequency)
+	logger("Ping MQTT")
+	publish(client,"ping", str("{}").encode("utf-8"))
+	time.sleep(2)
