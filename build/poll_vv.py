@@ -287,7 +287,7 @@ while True:
 		sn=f"vplant_sn{str(data['sn']).zfill(8)}"
 		logger(f"Updating: {vprobe_sn}")
 		create_vortex(client,data)
-		time.sleep(5)
+		time.sleep(2)
 		data["batt"]=battery_calc(data["batt"])
 		message=generate_message(data["message"])
 		for trim in ['INDICATORS','SENSORS','message']:
@@ -298,3 +298,6 @@ while True:
 		publish(client,f"{sn}/state/message", message.encode("utf-8"))
 	logger(f"Sleeping for {probe_frequency} seconds")
 	time.sleep(probe_frequency)
+	logger("Ping MQTT")
+	publish(client,"ping", str("{}").encode("utf-8"))
+	time.sleep(2)
