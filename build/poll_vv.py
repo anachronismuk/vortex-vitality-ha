@@ -119,6 +119,7 @@ def create_vortex(client,data):
 				"p": "sensor",
 				"name":"Temperature",
 				"device_class":"temperature",
+				"sensor_class":"MEASUREMENT",
 				"unit_of_measurement":"°C",
 				"value_template":"{{ value_json.tmp }}",
 				"unique_id": sn+"_temperature"
@@ -127,6 +128,7 @@ def create_vortex(client,data):
 				"p": "sensor",
 				"name":"Humidity",
 				"device_class":"humidity",
+				"sensor_class":"MEASUREMENT",
 				"unit_of_measurement":"%",
 				"value_template":"{{ value_json.hum }}",
 				"unique_id": sn+"_humidity"
@@ -135,6 +137,7 @@ def create_vortex(client,data):
 				"p": "sensor",
 				"name": "Battery",
 				"device_class": "battery",
+				"sensor_class":"MEASUREMENT",
 				"unit_of_measurement":"%",
 				"value_template":"{{ value_json.batt }}",
 				"unique_id": sn+"_battery"
@@ -143,6 +146,7 @@ def create_vortex(client,data):
 				"p": "sensor",
 				"name": "Moisture",
 				"device_class": "moisture",
+				"sensor_class":"MEASUREMENT",
 				"unit_of_measurement":"%",
 				"value_template":"{{ value_json.moisture }}",
 				"unique_id": sn+"_moisture"
@@ -151,6 +155,7 @@ def create_vortex(client,data):
 				"p": "sensor",
 				"name": "ms1",
 				"device_class": "moisture",
+				"sensor_class":"MEASUREMENT",
 				"unit_of_measurement":"%",
 				"value_template":"{{ value_json.ms1 }}",
 				"unique_id": sn+"_ms1"
@@ -159,6 +164,7 @@ def create_vortex(client,data):
 				"p": "sensor",
 				"name": "ms2",
 				"device_class": "moisture",
+				"sensor_class":"MEASUREMENT",
 				"unit_of_measurement":"%",
 				"value_template":"{{ value_json.ms2 }}",
 				"unique_id": sn+"_ms2"
@@ -167,13 +173,14 @@ def create_vortex(client,data):
 				"p": "sensor",
 				"name": "ms3",
 				"device_class": "moisture",
+				"sensor_class":"MEASUREMENT",
 				"unit_of_measurement":"%",
 				"value_template":"{{ value_json.ms3 }}",
 				"unique_id": sn+"_ms3"
 			},
 			"sensor count": {
 				"p": "sensor",
-				"state_class":"measurement",
+				"sensor_class":"MEASUREMENT",
 				"value_template":"{{ value_json.mSnrs }}",
 				"unique_id": sn+"_sensor_count",
 				"name":"Sensor Count"
@@ -182,6 +189,7 @@ def create_vortex(client,data):
 				"p": "sensor",
 				"name":"Signal Strength",
 				"device_class": "signal_strength",
+				"sensor_class":"MEASUREMENT",
 				"unit_of_measurement":"dBm",
 				"value_template":"{{ value_json.rssi }}",
 				"unique_id": sn+"_signal_strength"
@@ -190,6 +198,7 @@ def create_vortex(client,data):
 				"p": "sensor",
 				"name":"Illuminance",
 				"device_class": "illuminance",
+				"sensor_class":"MEASUREMENT",
 				"value_template":"{{ value_json.light }}",
 				"unit_of_measurement":"lx",
 				"unique_id": sn+"_illuminance"
@@ -204,30 +213,35 @@ def create_vortex(client,data):
 			"lightInd": {
 				"p": "sensor",
 				"name":"Light Indicator",
+				"sensor_class":"str",
 				"value_template": "{% if value_json.lightInd == 0 %}OK{% else %}Not OK{% endif %}",
 				"unique_id": sn+"_light_indicator"
 			},
 			"tempInd": {
 				"p": "sensor",
 				"name":"Temperature Indicator",
+				"sensor_class":"str",
 				"value_template": "{% if value_json.tempInd == 0 %}OK{% else %}Not OK{% endif %}",
 				"unique_id": sn+"temperature_indicator"
 			},
 			"humInd": {
 				"p": "sensor",
 				"name":"Humidity Indicator",
+				"sensor_class":"str",
 				"value_template": "{% if value_json.humInd == 0 %}OK{% else %}Not OK{% endif %}",
 				"unique_id": sn+"_humidity_indicator"
 			},
 			"moistureInd": {
 				"p": "sensor",
 				"name":"Moisture Indicator",
+				"sensor_class":"str",
 				"value_template": "{% if value_json.moistureInd == 0 %}OK{% else %}Not OK{% endif %}",
 				"unique_id": sn+"_moisture_indicator"
 			},
 			"message": {
 				"p": "sensor",
 				"name":"Message",
+				"sensor_class":"str",
 				"unique_id": sn+"_message",
 				"state_topic": sn+"/state/message"
 			}
