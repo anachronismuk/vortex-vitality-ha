@@ -213,35 +213,30 @@ def create_vortex(client,data):
 			"lightInd": {
 				"p": "sensor",
 				"name":"Light Indicator",
-				"state_class":"str",
 				"value_template": "{% if value_json.lightInd == 0 %}OK{% else %}Not OK{% endif %}",
 				"unique_id": sn+"_light_indicator"
 			},
 			"tempInd": {
 				"p": "sensor",
 				"name":"Temperature Indicator",
-				"state_class":"str",
 				"value_template": "{% if value_json.tempInd == 0 %}OK{% else %}Not OK{% endif %}",
 				"unique_id": sn+"temperature_indicator"
 			},
 			"humInd": {
 				"p": "sensor",
 				"name":"Humidity Indicator",
-				"state_class":"str",
 				"value_template": "{% if value_json.humInd == 0 %}OK{% else %}Not OK{% endif %}",
 				"unique_id": sn+"_humidity_indicator"
 			},
 			"moistureInd": {
 				"p": "sensor",
 				"name":"Moisture Indicator",
-				"state_class":"str",
 				"value_template": "{% if value_json.moistureInd == 0 %}OK{% else %}Not OK{% endif %}",
 				"unique_id": sn+"_moisture_indicator"
 			},
 			"message": {
 				"p": "sensor",
 				"name":"Message",
-				"state_class":"str",
 				"unique_id": sn+"_message",
 				"state_topic": sn+"/state/message"
 			}
