@@ -237,7 +237,7 @@ def create_vortex(client,data):
 			"name": {
 				"p": "sensor",
 				"name":"Plant Name",
-				"value_template": "{{ value_json.name == 0 }}",
+				"value_template": "{{ value_json.name }}",
 				"unique_id": sn+"_name"
 			},
 			"message": {
@@ -305,7 +305,7 @@ while True:
 		if status_code!=200:
 			break
 		data = response.json()
-		data["name"]=name
+		data['name']=name
 		sn=f"vplant_sn{str(data['sn']).zfill(8)}"
 		logger(f"Updating: {vprobe_sn}")
 		create_vortex(client,data)
