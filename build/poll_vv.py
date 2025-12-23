@@ -234,6 +234,12 @@ def create_vortex(client,data):
 				"value_template": "{% if value_json.moistureInd == 0 %}OK{% else %}Not OK{% endif %}",
 				"unique_id": sn+"_moisture_indicator"
 			},
+			"name": {
+				"p": "sensor",
+				"name":"Plant Name",
+				"value_template": "{{ value_json.name == 0 }}",
+				"unique_id": sn+"_name"
+			},
 			"message": {
 				"p": "sensor",
 				"name":"Message",
@@ -281,7 +287,13 @@ if probe_frequency<600:
 client=connect_mqtt(client_id,broker,port,username,password)
 client.on_disconnect = on_disconnect
 while True:
-	for vprobe_sn in my_probes.split(','):
+	for plant in my_probes.split(','):
+		tmp=plant.split(':')
+		vprobe_sn=tmp[0]
+		if len(tmp)>1:
+			name=tmp[1]
+		else:
+			name=""
 		url = f"https://nix2n3nq4jwhs6txesrbn4ih5a0tvacw.lambda-url.eu-west-1.on.aws/api-v1/get-live-data?api-key={api_key}&vprobe-sn={vprobe_sn}"
 		status_code=429
 		while status_code==429:
@@ -293,6 +305,7 @@ while True:
 		if status_code!=200:
 			break
 		data = response.json()
+		data["name"]=name
 		sn=f"vplant_sn{str(data['sn']).zfill(8)}"
 		logger(f"Updating: {vprobe_sn}")
 		create_vortex(client,data)
